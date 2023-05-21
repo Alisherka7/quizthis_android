@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">QuizThis</string>
+    <string name="title">Quiz This</string>
+    <string name="login">Login</string>
+    <string name="register">Registration</string>
+    <string name="reg">Create an account</string>
+    <string name="submit">Login</string>
+    <string name="haveacc">Already have an account?</string>
+    <string name="quizset">Quiz Sets</string>
+    <string name="book">Bookmarks</string>
+    <string name="sets">Edit Quiz Sets</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_new_quizset">Add new QuizSet</string>
+</resources>
