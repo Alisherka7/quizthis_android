@@ -15,6 +15,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".View.ShowQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.QuizActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.Fragments.FragmentActivity"
             android:exported="false" />
         <activity
