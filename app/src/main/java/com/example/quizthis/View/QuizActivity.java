@@ -5,8 +5,10 @@ import static android.content.ContentValues.TAG;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -23,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.quizthis.Model.Request.QuizRequest;
+import com.example.quizthis.Model.Response.ItemRemoveResponse;
 import com.example.quizthis.Model.Response.NewQuizResponse;
 import com.example.quizthis.Model.Response.NewQuizsetResponse;
 import com.example.quizthis.Model.Response.QuizResponse;
@@ -43,7 +46,8 @@ public class QuizActivity extends AppCompatActivity {
     public static final String MyPREFERENCES = "MyPrefs";
     TextView quizsetTitleTxt;
     LinearLayout addQuizButton;
-    LinearLayout quizListLayout;
+    LinearLayout quizListLayout, goBackLayout;
+    Button deleteQuizset;
     Integer quizsetid = -1;
     String title = "";
 
@@ -60,10 +64,33 @@ public class QuizActivity extends AppCompatActivity {
         quizListLayout = findViewById(R.id.quizListLayout);
         quizsetid = getIntent().getIntExtra("quizsetid", -1);
         title = getIntent().getStringExtra("title");
-
+        goBackLayout = findViewById(R.id.goBackLayout);
+        deleteQuizset = findViewById(R.id.deleteQuizset);
         quizsetTitleTxt.setText(title);
         // request
         getDatas();
+
+
+
+        // back button
+        goBackLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        // remove quizset button
+        deleteQuizset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("REmove button clicked ----------->>>");
+                System.out.println("REmove button clicked ----------->>>");
+                System.out.println("REmove button clicked ----------->>>");
+                System.out.println("REmove button clicked ----------->>>");
+                confirmRemoveDialog();
+            }
+        });
 
         addQuizButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +101,72 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
+    private void confirmRemoveDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirmation");
+        builder.setMessage("Are you sure you want to remove this item?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // Code to handle positive button click
+                // ...
+                deleteQuizsetRequest();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // Code to handle negative button click
+                // ...
+
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+//        final Dialog confirmDialog = new Dialog(this);
+//        confirmDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        confirmDialog.setCancelable(true);
+//        confirmDialog.setContentView(R.layout.confirm_dialog);
+//
+//        final Button dB = confirmDialog.findViewById(R.id.dB);
+//        final Button close = confirmDialog.findViewById(R.id.closeButton);
+//
+//        dB.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                deleteQuizsetRequest(confirmDialog);
+//            }
+//        });
+//
+//        close.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                confirmDialog.cancel();
+//            }
+//        });
+    }
+
+    // quizset remove
+    private void deleteQuizsetRequest(){
+        String TOKEN = sharedPreferences.getString("TOKEN", null);
+        RestApi apiInterface = RetrofitService.getRetrofitInstance(QuizActivity.this).create(RestApi.class);
+        Call<ItemRemoveResponse> deleteQuiz = apiInterface.deleteQuizset("Bearer" + TOKEN, quizsetid);
+        deleteQuiz.enqueue(new Callback<ItemRemoveResponse>() {
+            @Override
+            public void onResponse(Call<ItemRemoveResponse> call, Response<ItemRemoveResponse> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(QuizActivity.this, "Quizset removed Successfully!", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+            @Override
+            public void onFailure(Call<ItemRemoveResponse> call, Throwable t) {
+                // Handle network failure
+                Log.e(TAG, "Failed to add quizset: " + t.getMessage());
+                Toast.makeText(QuizActivity.this, "Cannot delete current quizset", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     private void addQuizDialog(){
         final Dialog dialog = new Dialog(this);
@@ -210,7 +303,24 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void deleteRequest(Integer quizId){
+        String TOKEN = sharedPreferences.getString("TOKEN", null);
+        RestApi apiInterface = RetrofitService.getRetrofitInstance(QuizActivity.this).create(RestApi.class);
+        Call<ItemRemoveResponse> deleteQuiz = apiInterface.deleteQuiz("Bearer" + TOKEN, quizId);
+        deleteQuiz.enqueue(new Callback<ItemRemoveResponse>() {
+            @Override
+            public void onResponse(Call<ItemRemoveResponse> call, Response<ItemRemoveResponse> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(QuizActivity.this, "Quiz removed Successfully!", Toast.LENGTH_SHORT).show();
+                    getDatas();
+                }
+            }
+            @Override
+            public void onFailure(Call<ItemRemoveResponse> call, Throwable t) {
+                // Handle network failure
+                Log.e(TAG, "Failed to add quizset: " + t.getMessage());
 
+            }
+        });
     }
 
 

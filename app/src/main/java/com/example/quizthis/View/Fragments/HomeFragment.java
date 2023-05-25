@@ -152,6 +152,12 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getDatas(view);
+    }
+
 
     private void getDatas(View view){
         String TOKEN = sharedPreferences.getString("TOKEN", null);
