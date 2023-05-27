@@ -5,12 +5,14 @@ public class QuizsetResponse {
     private Integer quizsetid;
     private String title;
     private String description;
+    private Integer items;
     private String error;
 
-    public QuizsetResponse(Integer quizsetid, String title, String description, String error) {
+    public QuizsetResponse(Integer quizsetid, String title, String description, Integer items, String error) {
         this.quizsetid = quizsetid;
         this.title = title;
         this.description = description;
+        this.items = items;
         this.error = error;
     }
 
@@ -20,6 +22,15 @@ public class QuizsetResponse {
 
     public void setQuizsetid(Integer quizsetid) {
         this.quizsetid = quizsetid;
+    }
+
+
+    public Integer getItems() {
+        return items;
+    }
+
+    public void setItems(Integer items) {
+        this.items = items;
     }
 
     public String getTitle() {

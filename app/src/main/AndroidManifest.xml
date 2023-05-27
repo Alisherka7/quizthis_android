@@ -15,6 +15,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".View.QuizResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.StartQuizGameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.QuizGameModeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.StartFlashCardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.FlashCardsActivitry"
+            android:exported="false" />
+        <activity
             android:name=".View.ShowQuizActivity"
             android:exported="false" />
         <activity

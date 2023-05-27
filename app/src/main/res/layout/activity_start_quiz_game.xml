@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".View.StartQuizGameActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:layout_weight="8">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/backBtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text='@string/back_str'
+                android:textSize="35sp"
+                android:background="@drawable/input_border"
+                />
+            <TextView
+                android:id="@+id/titleTxt"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:layout_height="50dp"
+                android:paddingStart="10dp"
+                android:hint="Quiz Game" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/block_border_orange"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:paddingStart="35dp"
+            android:paddingEnd="35dp"
+            android:layout_weight="10">
+            <TextView
+                android:id="@+id/currentPosition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1/10"
+                android:layout_gravity="center"
+                android:textSize="24sp"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:background="@drawable/input_border">
+                <TextView
+                    android:id="@+id/question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Test1"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/quizsetLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginEnd="80dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/firstv"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/input_border"
+                    android:paddingStart="20dp"
+                    android:layout_gravity="center"
+                    android:text="test 1"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="25sp"
+                    />
+                <TextView
+                    android:id="@+id/secondv"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/input_border"
+                    android:paddingStart="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="test 2"
+                    android:textSize="25sp"
+                    />
+                <TextView
+                    android:id="@+id/thirdv"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/input_border"
+                    android:paddingStart="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="test 3"
+                    android:textSize="25sp"
+                    />
+                <TextView
+                    android:id="@+id/fourthv"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/input_border"
+                    android:paddingStart="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="30dp"
+                    android:text="test 4"
+                    android:textSize="25sp"
+                    />
+
+                <Button
+                    android:id="@+id/nextButton"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/button_border"
+                    android:text="Next" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

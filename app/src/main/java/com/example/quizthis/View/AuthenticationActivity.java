@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.quizthis.Model.Authentication.LoginResponse;
-import com.example.quizthis.Model.LoginDto;
+import com.example.quizthis.Model.Authentication.LoginDto;
 import com.example.quizthis.R;
 import com.example.quizthis.RestApi.RestApi;
 import com.example.quizthis.Service.RetrofitService;

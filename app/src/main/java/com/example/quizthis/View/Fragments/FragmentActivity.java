@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import com.example.quizthis.R;
 import com.example.quizthis.databinding.ActivityFragmentBinding;
@@ -23,7 +24,6 @@ public class FragmentActivity extends AppCompatActivity {
         HomeFragment homeFragment = new HomeFragment();
         ProfileFragment profileFragment = new ProfileFragment();
         BookmarkFragment bookmarkFragment = new BookmarkFragment();
-        QuizsetFragment quizsetFragment = new QuizsetFragment();
         ReplacementFragment(homeFragment);
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
@@ -33,9 +33,6 @@ public class FragmentActivity extends AppCompatActivity {
                     break;
                 case R.id.bookmark:
                     ReplacementFragment(bookmarkFragment);
-                    break;
-                case R.id.sets:
-                    ReplacementFragment(quizsetFragment);
                     break;
                 case R.id.profile:
                     ReplacementFragment(profileFragment);

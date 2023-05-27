@@ -60,9 +60,8 @@
                     android:id="@+id/flashModeButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/cards"
+                    android:background="@drawable/f_mode"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingStart="10dp">
@@ -76,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/cards"
+                    android:background="@drawable/q_mode"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:paddingStart="10dp">

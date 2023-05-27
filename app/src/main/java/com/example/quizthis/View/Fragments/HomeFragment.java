@@ -29,6 +29,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.quizthis.MainActivity;
 import com.example.quizthis.Model.Response.NewQuizsetResponse;
 import com.example.quizthis.Model.Response.QuizsetRequest;
 import com.example.quizthis.Model.Response.QuizsetResponse;
@@ -141,6 +142,9 @@ public class HomeFragment extends Fragment {
                     Toast.makeText(getContext(), "Quizset Inserted Successfully!", Toast.LENGTH_SHORT).show();
                     getDatas(view);
                     dialog.cancel();
+                }else if(response.code() == 403){
+                    Intent intent = new Intent(getActivity(), AuthenticationActivity.class);
+                    startActivity(intent);
                 }
             }
             @Override
@@ -155,6 +159,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+
         getDatas(view);
     }
 
@@ -173,6 +178,7 @@ public class HomeFragment extends Fragment {
             public void onResponse(Call<List<QuizsetResponse>> call, Response<List<QuizsetResponse>> response) {
                 if (response.isSuccessful()) {
                     List<QuizsetResponse> quizsets = response.body();
+                    quizsetLayout.removeAllViews();
 
                     for(QuizsetResponse sets : quizsets){
 
@@ -241,6 +247,9 @@ public class HomeFragment extends Fragment {
                         });
 
                     }
+                }else if(response.code() == 403){
+                    Intent intent = new Intent(getActivity(), AuthenticationActivity.class);
+                    startActivity(intent);
                 }
             }
 

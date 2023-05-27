@@ -8,9 +8,6 @@
         android:icon="@drawable/bookmark_selector"
         android:id="@+id/bookmark"/>
     <item
-        android:icon="@drawable/folder_selector"
-        android:id="@+id/sets"/>
-    <item
         android:icon="@drawable/profile_selector"
         android:id="@+id/profile"/>
 </menu>

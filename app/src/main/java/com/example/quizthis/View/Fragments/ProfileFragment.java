@@ -85,9 +85,9 @@ public class ProfileFragment extends Fragment {
                 if (response.isSuccessful()) {
                     UserDataResponse userProfileResponse = response.body();
                     // Handle successful user profile response
-
                     //user name
                     yourName.setText(userProfileResponse.getUsername());
+                    quizsetsTxt.setText("Quiz Sets: " + userProfileResponse.getQuizsets().toString());
 
 //
 //                    //user Image
@@ -96,8 +96,6 @@ public class ProfileFragment extends Fragment {
 //                        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
 //                        userImage.setImageBitmap(bitmap);
 //                    }
-
-
 
 //                    System.out.println(userProfileResponse.getAverageRank());
 

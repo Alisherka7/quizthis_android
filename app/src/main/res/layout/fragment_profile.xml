@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="2">
+            android:layout_weight="2.5">
 
 
 <!--            <LinearLayout-->
@@ -42,7 +42,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
                     android:orientation="vertical">
                     <TextView
                         android:layout_width="match_parent"
@@ -65,12 +64,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:paddingTop="10dp"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:background="@drawable/circle_add" />
-                </LinearLayout>
+                    android:orientation="vertical"/>
 
             </LinearLayout>
         </LinearLayout>
@@ -113,7 +107,7 @@
                     android:id="@+id/averageTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Completion Average: 75%"
+                    android:text="Completion Average: 0%"
                     android:layout_marginBottom="10dp"
                     android:textSize="20sp"
                     android:textColor="@color/black"/>

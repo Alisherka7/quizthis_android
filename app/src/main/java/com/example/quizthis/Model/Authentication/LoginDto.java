@@ -1,4 +1,4 @@
-package com.example.quizthis.Model;
+package com.example.quizthis.Model.Authentication;
 
 public class LoginDto {
     private String email;

@@ -1,10 +1,12 @@
 package com.example.quizthis.RestApi;
 
 import com.example.quizthis.Model.Authentication.LoginResponse;
-import com.example.quizthis.Model.LoginDto;
+import com.example.quizthis.Model.Authentication.LoginDto;
+import com.example.quizthis.Model.Authentication.RegisterDTO;
 import com.example.quizthis.Model.Request.QuizRequest;
 import com.example.quizthis.Model.Response.ItemRemoveResponse;
 import com.example.quizthis.Model.Response.NewQuizResponse;
+import com.example.quizthis.Model.Response.QuizGameResponse;
 import com.example.quizthis.Model.Response.QuizResponse;
 import com.example.quizthis.Model.Response.QuizsetRequest;
 import com.example.quizthis.Model.Response.QuizsetResponse;
@@ -26,6 +28,10 @@ public interface RestApi {
     // Authorization
     @POST("/api/v1/auth/login")
     Call<LoginResponse> login(@Body LoginDto request);
+
+    // Authorization
+    @POST("/api/v1/auth/register")
+    Call<LoginResponse> register(@Body RegisterDTO request);
 
 
     // Get user datas
@@ -56,4 +62,8 @@ public interface RestApi {
     // Delete quiz
     @DELETE("/api/v1/quiz/delete/{quizid}")
     Call<ItemRemoveResponse> deleteQuiz(@Header("Authorization") String TOKEN, @Path("quizid") Integer quizid);
+
+    // quiz game mode
+    @GET("/api/v1/quiz/quizgame/{quizsetId}")
+    Call<List<QuizGameResponse>> quizGameMode(@Header("Authorization") String TOKEN, @Path("quizsetId") Integer quizsetId);
 }
